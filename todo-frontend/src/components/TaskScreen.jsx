@@ -15,7 +15,7 @@ const TaskScreen = ({ onDelete, onUpdate }) => {
   useEffect(() => {
     const fetchTask = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/tasks/${id}`);
+        const response = await axios.get(`tasks/${id}`);
         setTask(response.data);
       } catch (err) {
         console.error("Error fetching task:", err);
@@ -34,7 +34,7 @@ const TaskScreen = ({ onDelete, onUpdate }) => {
   const handleSave = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/tasks/${id}`,
+        `/tasks/${id}`,
         task
       );
       setTask(response.data);
@@ -51,7 +51,7 @@ const TaskScreen = ({ onDelete, onUpdate }) => {
     const updatedTask = { ...task, completed: !(task.completed === "true") };
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/tasks/${id}`,
+        `/tasks/${id}`,
         updatedTask
       );
       setTask(response.data);

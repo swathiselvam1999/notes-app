@@ -8,6 +8,8 @@ import Swal from 'sweetalert2';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
 import Header from './components/Header';
+import api from './api';
+
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -18,7 +20,7 @@ const App = () => {
   useEffect(() => {
     const fetchTasks = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/tasks');
+            const response = await api.get('/tasks');
             setTasks(response.data);
         } catch (error) {
             console.error('Error fetching tasks:', error);
@@ -32,7 +34,7 @@ const App = () => {
 
   // Add task
   const handleFormSubmit = async (task) => {
-    const response = await axios.post('http://localhost:5000/api/tasks', task);
+    const response = await api.post('/tasks', task);
     setTasks([...tasks, response.data]);
   };
 
@@ -61,7 +63,7 @@ const App = () => {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+        await api.delete(`tasks/${id}`);
         setTasks(tasks.filter((task) => task._id !== id));
         // Success alert after deletion
         Swal.fire({
@@ -90,7 +92,7 @@ const App = () => {
   const onToggleComplete = async (task) => {
     try {
       const updatedTask = { ...task, completed: task.completed === "true" ? "false" : "true" };
-      const response = await axios.put(`http://localhost:5000/api/tasks/${task._id}`, updatedTask);
+      const response = await api.put(`/tasks/${task._id}`, updatedTask);
       setTasks((prev) =>
         prev.map((t) => (t._id === task._id ? response.data : t))
       );
