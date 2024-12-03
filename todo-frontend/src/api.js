@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:5000/api/tasks',
+    baseURL: 'https://notes-app-x9jc.onrender.com/',
 });
 
 export default api;
