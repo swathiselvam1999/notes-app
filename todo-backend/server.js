@@ -29,10 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/tasks', taskRoutes);
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URI,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
+mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => {
     console.error('MongoDB connection error:', err);
