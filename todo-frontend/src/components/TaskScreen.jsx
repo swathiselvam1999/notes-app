@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaTrash, FaEdit } from "react-icons/fa";
 import Loader from "./Loader";
+import api from "../api"
 
 const TaskScreen = ({ onDelete, onUpdate }) => {
   const { id } = useParams();
@@ -15,7 +16,7 @@ const TaskScreen = ({ onDelete, onUpdate }) => {
   useEffect(() => {
     const fetchTask = async () => {
       try {
-        const response = await axios.get(`tasks/${id}`);
+        const response = await api.get(`tasks/${id}`);
         setTask(response.data);
       } catch (err) {
         console.error("Error fetching task:", err);
@@ -33,7 +34,7 @@ const TaskScreen = ({ onDelete, onUpdate }) => {
 
   const handleSave = async () => {
     try {
-      const response = await axios.put(
+      const response = await api.put(
         `/tasks/${id}`,
         task
       );
@@ -50,7 +51,7 @@ const TaskScreen = ({ onDelete, onUpdate }) => {
   const handleToggleComplete = async () => {
     const updatedTask = { ...task, completed: !(task.completed === "true") };
     try {
-      const response = await axios.put(
+      const response = await api.put(
         `/tasks/${id}`,
         updatedTask
       );
