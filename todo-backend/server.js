@@ -36,6 +36,11 @@ mongoose.connect(process.env.MONGO_URI)
     process.exit(1); // Exit the process if DB connection fails
 });
 
+app.get('/', (req, res) => {
+    res.send('API is running');
+});
+
+
 // Start Server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
