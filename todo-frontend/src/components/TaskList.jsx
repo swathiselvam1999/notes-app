@@ -11,20 +11,22 @@ const TaskList = ({ tasks }) => {
     }
 
     return (
-        <div className="p-5 min-h-screen flex flex-col items-center mb-10">
+        <div className="p-4 min-h-screen flex flex-col items-center">
             {tasks.length === 0 ? (
-                <h1 className="text-4xl text-center font-bold text-red-800">No Notes :(</h1>
+                <h1 className="text-2xl md:text-4xl text-center font-bold text-red-800">
+                    No Notes :(
+                </h1>
             ) : (
                 <>
-                    <h2 className="text-3xl font-bold mb-6 text-center">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">
                         My Notes
                     </h2>
-                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl">
+                    <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl">
                         {tasks.map((task) => (
                             <Link
                                 key={task._id}
                                 to={`/task/${task._id}`}
-                                className={`p-6 rounded-xl shadow-md bg-yellow-100 hover:shadow-lg transform hover:scale-105 transition-all `}
+                                className="p-4 md:p-6 rounded-xl shadow-md bg-yellow-100 hover:shadow-lg transform hover:scale-105 transition-all"
                                 style={{
                                     backgroundImage:
                                         'url("https://www.transparenttextures.com/patterns/light-paper-fibers.png")',
@@ -33,31 +35,33 @@ const TaskList = ({ tasks }) => {
                                 }}
                             >
                                 <h3
-                                    className={`text-xl font-bold ${
-                                        task.completed === "true" ? 'text-gray-500' : 'text-gray-800'
+                                    className={`text-lg md:text-xl font-bold ${
+                                        task.completed === "true"
+                                            ? 'text-gray-500'
+                                            : 'text-gray-800'
                                     }`}
                                 >
                                     {task.title}
                                 </h3>
                                 <p
-                                    className={`text-gray-700 mt-2 line-clamp-3 ${
+                                    className={`text-sm md:text-base text-gray-700 mt-2 line-clamp-3 ${
                                         task.completed === "true" ? 'text-gray-400' : ''
                                     }`}
                                 >
                                     {task.description}
                                 </p>
-                                <div className='mt-4'>
-                                <span
-                                    className={`mt-5 px-3 py-1 rounded-full text-sm font-semibold ${
-                                        task.completed === "true"
-                                            ? 'bg-green-100 text-green-700'
-                                            : 'bg-red-100 text-red-700'
-                                    }`}
-                                >
-                                    {task.completed === "true"
-                                        ? 'Completed'
-                                        : 'Incomplete'}
-                                </span>
+                                <div className="mt-4">
+                                    <span
+                                        className={`px-3 py-1 rounded-full text-sm font-semibold ${
+                                            task.completed === "true"
+                                                ? 'bg-green-100 text-green-700'
+                                                : 'bg-red-100 text-red-700'
+                                        }`}
+                                    >
+                                        {task.completed === "true"
+                                            ? 'Completed'
+                                            : 'Incomplete'}
+                                    </span>
                                 </div>
                             </Link>
                         ))}

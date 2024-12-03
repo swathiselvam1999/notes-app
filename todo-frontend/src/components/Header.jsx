@@ -18,8 +18,8 @@ const Header = () => {
 
     return (
         <div>
-            <nav className="flex justify-between bg-yellow-400 font-bold py-4 px-8">
-                <Link to="/" className="text-white text-4xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">MyNotes</Link>
+            <nav className="flex justify-between bg-yellow-400 font-bold  py-2 px-4 md:py-4 md:px-8">
+                <Link to="/" className="text-white text-3xl md:text-4xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">MyNotes</Link>
                 <label className="grid cursor-pointer place-items-center">
                     <input
                         type="checkbox"

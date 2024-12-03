@@ -140,18 +140,18 @@ const TaskScreen = ({ onDelete, onUpdate }) => {
         ) : (
           <div className="">
             <div className="flex items-center justify-between">
-              <h1 className="text-4xl font-bold mb-4 text-gray-800">{task.title}</h1>
+              <h1 className=" text-3xl md:text-4xl font-bold mb-4 text-gray-800">{task.title}</h1>
               <input
                 type="checkbox"
                 checked={task.completed === "true"}
                 onChange={handleToggleComplete}
-                className=" p-3 sm:p-3 checkbox checkbox-sm bg-white border-yellow-600 focus:ring-yellow-400"
+                className="p-2 md:p-3 checkbox checkbox-sm bg-white border-yellow-600 focus:ring-yellow-400"
               />
             </div>
-            <p className="text-lg text-gray-700 mb-6 whitespace-pre-wrap">{task.description}</p>
+            <p className="text-md md:text-lg text-gray-700 mb-6 whitespace-pre-wrap">{task.description}</p>
 
 
-            <div className="my-5 ">
+            <div className="my-5 text-md md:text-lg">
               <span
                 className={`relative inline-flex items-center pl-8 pr-5 py-2 text-sm font-bold rounded-full tracking-wide shadow-lg ${task.completed === "true"
                   ? "bg-green-200 text-green-800 after:content-['✔'] after:absolute after:left-2 after:text-green-600"
@@ -163,7 +163,7 @@ const TaskScreen = ({ onDelete, onUpdate }) => {
 
             </div>
 
-            <div className="flex gap-3">
+            <div className="flex gap-3 text-sm md:text-md">
               <button
                 onClick={() => setIsEditing(true)}
                 className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded transition"
