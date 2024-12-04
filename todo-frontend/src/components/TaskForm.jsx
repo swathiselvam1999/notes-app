@@ -59,12 +59,12 @@ const TaskForm = ({ onSubmit }) => {
         </div>
       )}
 
-      <div className="w-full max-w-5xl bg-white shadow-lg rounded-lg p-6 border border-yellow-400">
+      <div className="w-full max-w-5xl bg-white shadow-lg rounded-lg  p-4 md:p-6 border border-yellow-400">
         <div className="collapse collapse-plus">
           <input type="checkbox" id="section-1" className="peer hidden" />
           <label
             htmlFor="section-1"
-            className="collapse-title text-2xl font-semibold cursor-pointer text-yellow-800 bg-yellow-100 p-4 rounded-lg hover:bg-yellow-200 transition-all"
+            className="collapse-title text-xl md:text-2xl font-semibold cursor-pointer text-yellow-800 bg-yellow-100 p-2 md:p-4 rounded-lg hover:bg-yellow-200 transition-all"
           >
             Add New Note
           </label>

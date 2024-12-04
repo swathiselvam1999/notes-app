@@ -21,7 +21,7 @@ const TaskList = ({ tasks }) => {
                     <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">
                         My Notes
                     </h2>
-                    <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl">
+                    <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl">
                         {tasks.map((task) => (
                             <Link
                                 key={task._id}
